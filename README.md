@@ -35,3 +35,47 @@ Aşağıdaki adımları takip ederek projeyi kendi bilgisayarınızda çalışt�
 ```bash
 git clone https://github.com/furkansoydas/baraj_doluluk.git
 cd baraj_doluluk
+
+### Gereksinimlerin Kurulması
+pip install -r requirements.txt
+
+## 🐳 Docker ile Kurulum (Opsiyonel)
+
+Projeyi Docker kullanarak izole bir ortamda çalıştırmak istersen aşağıdaki adımları takip edebilirsin.
+
+### 🔧 Gereksinimler
+
+- Docker: [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
+
+### 📦 Docker Image Oluşturma ve Çalıştırma
+
+1. Proje dizinine geç:
+
+    ```bash
+    cd baraj_doluluk
+    ```
+
+2. Docker image oluştur:
+
+    ```bash
+    docker build -t baraj-doluluk .
+    ```
+
+3. Container başlat:
+
+    ```bash
+    docker run -it --rm baraj-doluluk
+    ```
+
+> `--rm` flag’i işlem bitince konteyneri otomatik olarak siler. Geliştirme sürecinde kalıcılık istenirse volume bağlanabilir.
+
+### 📝 Notlar
+
+- `Dockerfile` içerisinde Python bağımlılıkları ve ortam ayarları tanımlanmıştır.
+- Eğer veri dosyaların (örneğin `veri_tarih_ekli.xlsx`) proje dışındaysa, klasörü volume olarak bağlayarak erişebilirsin:
+
+    ```bash
+    docker run -it --rm -v $(pwd)/data:/app/data baraj-doluluk
+    ```
+
+    > `$(pwd)` komutu bulunduğun dizini referans alır. Windows kullanıcıları için: `%cd%`
