@@ -24,6 +24,13 @@ pip install -r requirements.txt
 
 Docker kullanarak projeyi izole bir ortamda çalıştırmak istersen şu adımları takip edebilirsin:
 
+> 📌 **Not:** Bu projedeki `Dockerfile`, Apache2 kurulu bir Ubuntu tabanlı imaj kullanır.  
+> Bu image’in oluşturulma amacı, başlangıçta proje çıktısı olan grafiklerin ve kod parametrelerinin  
+> **interaktif şekilde değiştirilerek** grafik sonuçları ve başarı metriklerindeki etkilerin kullanıcıya  
+> **dinamik olarak sunulması** hedeflenmiştir.  
+> Bu etkileşimli yapı şu anda aktif değildir; ancak **ileride projeye entegre edilmesi planlanmaktadır.**
+
+
 ### 🔧 Gereksinimler
 
 - Docker yüklü olmalıdır:  
